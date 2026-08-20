@@ -15,7 +15,6 @@
             margin: 0;
         }
 
-        /* Khung đếm ngược chính - Nền xanh nước biển, viền trắng nổi 3D */
         .countdown-container {
             background: linear-gradient(145deg, #0f3854, #0a2239);
             border: 3px solid #ffffff;
@@ -28,6 +27,13 @@
                 0 10px 25px rgba(0, 0, 0, 0.5),
                 0 0 15px rgba(255, 255, 255, 0.3),
                 inset 0 2px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Tùy chỉnh kích thước ảnh logo bảo trì */
+        .maintenance-logo {
+            width: 80px;
+            height: auto;
+            margin-bottom: 15px;
         }
 
         .countdown-container h3 {
@@ -45,7 +51,6 @@
             margin-top: 20px;
         }
 
-        /* Khung chứa từng con số - Nền xanh bầu trời (Sky Blue), hiệu ứng 3D dập nổi */
         .time-box {
             background: linear-gradient(180deg, #38b6ff, #0077b6);
             border: 2px solid #ffffff;
@@ -79,6 +84,9 @@
 <body>
 
 <div class="countdown-container">
+    <!-- Thẻ hiển thị logo bảo trì -->
+    <img src="https://learn.microsoft.com/vi-vn/office/vba/images/toolbox_za01201770.gif" alt="Bảo trì" class="maintenance-logo">
+    
     <h3 id="status-title">Thời gian hỗ trợ còn lại</h3>
     <div class="timer">
         <div class="time-box"><span id="days">00</span><label>Ngày</label></div>
@@ -89,11 +97,9 @@
 </div>
 
 <script>
-    // Thiết lập mốc thời gian đích (Năm-Tháng-NgàyTHiờ:Phút:Giây)
-    const targetDate = new Date("2026-8-21T23:59:59").getTime();
+    const targetDate = new Date("2026-08-21T23:59:59").getTime();
 
     function updateCountdown() {
-        // Lấy thời gian hiện tại trực tiếp từ thiết bị/trình duyệt Client
         const clientNow = new Date().getTime();
         const difference = targetDate - clientNow;
 
@@ -115,7 +121,6 @@
         document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
     }
 
-    // Chạy đếm ngược mỗi 1 giây
     const timerInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
 </script>
