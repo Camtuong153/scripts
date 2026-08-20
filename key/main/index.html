@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Obsidian Hub - Main</title>
+</head>
+<body>
+    <div id="app">Đang tải giao diện bảo mật...</div>
+
+    <script>
+        // Tải giao diện thực từ Cloudflare Storage qua Worker để giấu code gốc
+        fetch("https://rblx-open-api-key.cammanhtuong.workers.dev/api/get-ui?page=main")
+            .then(res => res.text())
+            .then(html => {
+                document.open();
+                document.write(html);
+                document.close();
+            });
+    </script>
+</body>
+</html>

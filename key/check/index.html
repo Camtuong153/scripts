@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <script>
+        // Xử lý chuyển hướng giữa các web QC và gửi mã xác nhận tới Worker
+        const urlParams = new URLSearchParams(window.location.search);
+        const provider = urlParams.get("provider") || "default";
+
+        // Tạo mã ngẫu nhiên đại diện cho phiên chuyển hướng
+        const tempCheckCode = "CHECK_" + Math.random().toString(36).substring(2, 9).toUpperCase();
+
+        // Chuyển hướng người dùng về lại trang main kèm mã trung gian
+        window.location.href = `https://camtuong153.github.io/scripts/key/main?code=${tempCheckCode}`;
+    </script>
+</body>
+</html>
