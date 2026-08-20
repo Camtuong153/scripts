@@ -3,118 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>trang web dã ngưng hoạt động!</title>
+    <title>Đếm ngược hỗ trợ</title>
     <style>
         body {
+            background-color: #0b1d3a;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f9;
+            height: 100vh;
             margin: 0;
         }
+
+        /* Khung đếm ngược chính - Nền xanh nước biển, viền trắng nổi 3D */
         .countdown-container {
+            background: linear-gradient(145deg, #0f3854, #0a2239);
+            border: 3px solid #ffffff;
+            border-radius: 16px;
+            padding: 25px;
             text-align: center;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+            max-width: 450px;
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.5),
+                0 0 15px rgba(255, 255, 255, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.2);
         }
+
+        .countdown-container h3 {
+            margin-top: 0;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
         .timer {
             display: flex;
-            gap: 15px;
             justify-content: center;
+            gap: 12px;
             margin-top: 20px;
         }
+
+        /* Khung chứa từng con số - Nền xanh bầu trời (Sky Blue), hiệu ứng 3D dập nổi */
         .time-box {
-            background: #007bff;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            min-width: 70px;
+            background: linear-gradient(180deg, #38b6ff, #0077b6);
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            padding: 12px 10px;
+            min-width: 65px;
+            box-shadow: 
+                0 6px 0px #00407a, 
+                0 8px 10px rgba(0, 0, 0, 0.4),
+                inset 0 2px 2px rgba(255, 255, 255, 0.5);
         }
+
         .time-box span {
             display: block;
-            font-size: 2rem;
+            font-size: 26px;
             font-weight: bold;
-        }
-        .label {
-            font-size: 0.85rem;
-            margin-top: 5px;
-            text-transform: uppercase;
-        }
-    </style>
-</head>
-<body>
-
-<div class="countdown-container">
-    <h2>Thời gian còn lại đến ngày hỗ trợ:</h2>
-    <div class="timer">
-        <div class="time-box"><span id="days">00</span><div class="label">Ngày</div></div>
-        <div class="time-box"><span id="hours">00</span><div class="label">Giờ</div></div>
-        <div class="time-box"><span id="minutes">00</span><div class="label">Phút</div></div>
-        <div class="time-box"><span id="seconds">00</span><div class="label">Giây</div></div>
-    </div>
-</div>
-
-<script>
-    // Tùy chỉnh ngày đích tại đây (Định dạng: "YYYY-MM-DDTHH:mm:ss")
-    const targetDate = new Date("2026-12-31T00:00:00").getTime();
-
-    const countdown = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
-
-        if (distance < 0) {
-            clearInterval(countdown);
-            document.querySelector(".countdown-container").innerHTML = "<h2>Đã đến ngày hỗ trợ!</h2>";
-            return;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (Dưới đây là đoạn mã HTML và JavaScript đơn giản giúp tạo bộ đếm ngược thời gian hỗ trợ (Support Countdown) trực quan, có thể nhúng trực tiếp vào trang web của bạn:
-
-```html
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đếm ngược hỗ trợ</title>
-    <style>
-        .countdown-container {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            max-width: 400px;
-            margin: 20px auto;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        .time-box {
-            background: #007bff;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            min-width: 50px;
-        }
-        .time-box span {
-            display: block;
-            font-size: 20px;
-            font-weight: bold;
-        }
         .time-box label {
-            font-size: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #e0f2fe;
+            margin-top: 4px;
+            display: block;
         }
     </style>
 </head>
@@ -131,12 +89,13 @@
 </div>
 
 <script>
-    // Đặt ngày kết thúc hỗ trợ (Định dạng: YYYY-MM-DDTHH:mm:ss)
-    const targetDate = new Date("2026-8-21T23:59:59").getTime();
+    // Thiết lập mốc thời gian đích (Năm-Tháng-NgàyTHiờ:Phút:Giây)
+    const targetDate = new Date("2026-12-31T23:59:59").getTime();
 
-    const updateCountdown = () => {
-        const now = new Date().getTime();
-        const difference = targetDate - now;
+    function updateCountdown() {
+        // Lấy thời gian hiện tại trực tiếp từ thiết bị/trình duyệt Client
+        const clientNow = new Date().getTime();
+        const difference = targetDate - clientNow;
 
         if (difference <= 0) {
             document.getElementById("status-title").innerText = "Hết thời hạn hỗ trợ!";
@@ -154,8 +113,9 @@
         document.getElementById("hours").innerText = String(hours).padStart(2, '0');
         document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
         document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
-    };
+    }
 
+    // Chạy đếm ngược mỗi 1 giây
     const timerInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
 </script>
